@@ -1,0 +1,26 @@
+# action.yml
+name: 'Trains train model'
+description: 'Clone and enqueue your task to train your model'
+inputs:
+  TRAINS_API_ACCESS_KEY:
+    description: 'Trains api access key (can be generated in your profile page'
+    required: true
+  TRAINS_API_SECRET_KEY:
+    description: 'Trains api secret key (can be generated in your profile page'
+    required: true
+  TRAINS_API_HOST:
+    description: 'Trains server api host'
+    required: true
+  TASK_ID:
+    description: 'The id of the template task'
+    required: true
+  QUEUE_NAME:
+    description: 'The queue name for the cloned task'
+    required: false
+    default: 'default'
+outputs:
+  TASK_STATUS:
+    description: 'The task current status'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
