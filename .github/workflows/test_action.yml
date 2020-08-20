@@ -1,0 +1,25 @@
+name: Test train model
+on: [issue_comment]
+
+jobs:
+  train-model:
+      if: contains(github.event.comment.body, '/train-model')
+      runs-on: ubuntu-latest
+      steps:
+        - name: Train model
+          uses: allegroai/trains-actions-train-model@master
+          id: train
+          with:
+            TRAINS_API_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+            TRAINS_API_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+            TRAINS_API_HOST: ${{ secrets.TRAINS_API_HOST }}
+            TASK_ID: "f458a609dc6145efaf634318e40c3a2e"
+            QUEUE_NAME: "default"
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Print task status
+          run: |
+            echo "Task stats is ${TASK_STATUS} for task ${CLONED_TASK}"
+          env:
+            TASK_STATUS: ${{ steps.train.outputs.TASK_STATUS }}
+            CLONED_TASK: ${{ steps.train.outputs.CLONED_TASK }}
