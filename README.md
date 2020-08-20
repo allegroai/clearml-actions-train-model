@@ -1,12 +1,12 @@
 # GitHub Action For Running You Experiment With Allegro Trains
 
 ![GitHub stars](https://img.shields.io/github/stars/allegroai/trains?style=social)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/shomratalon/trains-train-model/Test%20train%20model)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/allegroai/trains-train-model/Test%20train%20model)
 
 
 Train models easily with Allegro Trains from your repo!
  
-This action will help you to run your experiments with Trains from Github directly. 
+This action helps you to run your experiments with Trains from Github directly. 
 Just comment from any issue or pull request with 
   - `/train-model branch <brach name>`
   - `/train-model tag <tag_name> `
@@ -15,11 +15,12 @@ Just comment from any issue or pull request with
 
 ## Usage
 ### Workflow Example
-This will add an action to your workflow that will clone task `TASK_ID` and will enqueue it to selected queue (`QUEUE_NAME` input parameter). 
+This will add an action to your workflow that will clone an Allegro [Task](https://allegro.ai/docs/concepts_arch/concepts_arch/#tasks)
+ `TASK_ID` and will enqueue it to selected [queue](https://allegro.ai/docs/concepts_arch/concepts_arch/#workers-and-queues) (`QUEUE_NAME` input parameter). 
 
-Will work in both github issues and github pull requests comments.
+Works both in github issues and github pull requests comments.
 
-<img src="https://github.com/shomratalon/trains-train-model/blob/master/docs/trains-train-model-flow.png?raw=true" width="100%">
+<img src="ttps://github.com/allegroai/trains-actions-train-model/blob/master/docs/trains-train-model-flow.png?raw=true" width="100%">
 
 ```yaml
 name: Train model
@@ -31,7 +32,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Train model
-          uses: shomratalon/trains-train-model@master
+          uses: allegroai/trains-train-model@master
           id: train
           with:
             TRAINS_API_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
