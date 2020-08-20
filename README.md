@@ -16,11 +16,12 @@ Just comment from any issue or pull request with
 ## Usage
 ### Workflow Example
 This will add an action to your workflow that will clone an Allegro [Task](https://allegro.ai/docs/concepts_arch/concepts_arch/#tasks)
- `TASK_ID` and will enqueue it to selected [queue](https://allegro.ai/docs/concepts_arch/concepts_arch/#workers-and-queues) (`QUEUE_NAME` input parameter). 
+ `TASK_ID` and will enqueue it to selected [Queue](https://allegro.ai/docs/concepts_arch/concepts_arch/#workers-and-queues) (`QUEUE_NAME` input parameter). 
 
 Works both in github issues and github pull requests comments.
+![image](docs/trains-train-model-flow.png)
 
-<img src="ttps://github.com/allegroai/trains-actions-train-model/blob/master/docs/trains-train-model-flow.png?raw=true" width="100%">
+
 
 ```yaml
 name: Train model
