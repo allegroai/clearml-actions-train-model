@@ -1,12 +1,12 @@
-# GitHub Action For Running You Experiment With Allegro Trains
+# GitHub Action For Running Experiments With Allegro Trains
 
 ![GitHub stars](https://img.shields.io/github/stars/allegroai/trains?style=social)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/allegroai/trains-actions-train-model/Test%20train%20model)
 
 
-Train models easily with Allegro Trains from your repo!
+Train models easily with Allegro Trains, directly from your repo!
  
-This action helps you to run your experiments with Trains from Github directly. 
+This action helps to run experiments with , directly from Github. 
 Just comment from any issue or pull request with 
   - `/train-model branch <brach name>`
   - `/train-model tag <tag_name> `
