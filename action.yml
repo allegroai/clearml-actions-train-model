@@ -21,6 +21,9 @@ inputs:
 outputs:
   TASK_STATUS:
     description: 'The task current status'
+branding:
+  color: 'purple'
+  icon: 'monitor'
 runs:
   using: 'docker'
   image: 'Dockerfile'
