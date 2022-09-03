@@ -3,7 +3,7 @@ import os
 
 from github3 import login
 
-from trains import Task
+from clearml import Task
 
 
 def clone_and_queue(template_task: str, queue: str) -> Task:
@@ -59,9 +59,9 @@ if __name__ == "__main__":
     # Get the user input
     base_task_id = os.getenv('INPUT_TASK_ID')
     queue_name = os.getenv('INPUT_QUEUE_NAME')
-    os.environ["TRAINS_API_ACCESS_KEY"] = os.getenv('INPUT_TRAINS_API_ACCESS_KEY')
-    os.environ["TRAINS_API_SECRET_KEY"] = os.getenv('INPUT_TRAINS_API_SECRET_KEY')
-    os.environ["TRAINS_API_HOST"] = os.getenv('INPUT_TRAINS_API_HOST')
+    os.environ["CLEARML_API_ACCESS_KEY"] = os.getenv('INPUT_CLEARML_API_ACCESS_KEY')
+    os.environ["CLEARML_API_SECRET_KEY"] = os.getenv('INPUT_CLEARML_API_SECRET_KEY')
+    os.environ["CLEARML_API_HOST"] = os.getenv('INPUT_CLEARML_API_HOST')
     cloned_task = clone_and_queue(template_task=base_task_id, queue=queue_name)
     print(f'::set-output name=CLONED_TASK::{cloned_task.id}')
     print(f'::set-output name=TASK_STATUS::{cloned_task.get_status()}')
