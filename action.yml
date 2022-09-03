@@ -1,15 +1,15 @@
 # action.yml
-name: 'Trains train model'
+name: 'ClearML train model'
 description: 'Clone and enqueue your task to train your model'
 inputs:
-  TRAINS_API_ACCESS_KEY:
-    description: 'Trains api access key (can be generated in your profile page'
+  CLEARML_API_ACCESS_KEY:
+    description: 'ClearML api access key (can be generated in your profile page'
     required: true
-  TRAINS_API_SECRET_KEY:
-    description: 'Trains api secret key (can be generated in your profile page'
+  CLEARML_API_SECRET_KEY:
+    description: 'ClearML api secret key (can be generated in your profile page'
     required: true
-  TRAINS_API_HOST:
-    description: 'Trains server api host'
+  CLEARML_API_HOST:
+    description: 'ClearML server api host'
     required: true
   TASK_ID:
     description: 'The id of the template task'
