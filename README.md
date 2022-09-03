@@ -1,10 +1,10 @@
-# GitHub Action For Running Experiments With Allegro Trains
+# GitHub Action For Running Experiments With ClearML
 
-![GitHub stars](https://img.shields.io/github/stars/allegroai/trains?style=social)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/allegroai/trains-actions-train-model/Test%20train%20model)
+![GitHub stars](https://img.shields.io/github/stars/allegroai/clearml?style=social)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/allegroai/clearml-actions-train-model/Test%20train%20model)
 
 
-Train models easily with Allegro Trains, directly from your repo!
+Train models easily with ClearML, directly from your repo!
  
 This action helps to run experiments with , directly from Github. 
 Just comment from any issue or pull request with 
@@ -15,11 +15,11 @@ Just comment from any issue or pull request with
 
 ## Usage
 ### Workflow Example
-This will add an action to your workflow that will clone an Allegro [Task](https://allegro.ai/docs/concepts_arch/concepts_arch/#tasks)
- `TASK_ID` and will enqueue it to selected [Queue](https://allegro.ai/docs/concepts_arch/concepts_arch/#workers-and-queues) (`QUEUE_NAME` input parameter). 
+This will add an action to your workflow that will clone a ClearML [Task](https://clear.ml/docs/latest/docs/fundamentals/task)
+ `TASK_ID` and will enqueue it to selected [Queue](https://clear.ml/docs/latest/docs/fundamentals/agents_and_queues) (`QUEUE_NAME` input parameter). 
 
 Works both in github issues and github pull requests comments.
-![image](docs/trains-train-model-flow.png)
+![image](docs/clearml-train-model-flow.png)
 
 
 
@@ -33,12 +33,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Train model
-          uses: allegroai/trains-train-model@master
+          uses: allegroai/clearml-train-model@master
           id: train
           with:
-            TRAINS_API_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-            TRAINS_API_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-            TRAINS_API_HOST: ${{ secrets.TRAINS_API_HOST }}
+            CLEARML_API_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+            CLEARML_API_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+            CLEARML_API_HOST: ${{ secrets.CLEARML_API_HOST }}
             TASK_ID: "e4623efdfa1d461e9101615728fdc52e"
             QUEUE_NAME: "train_queue"
           env:
@@ -55,14 +55,14 @@ jobs:
 ### Inputs
 
 #### Mandatory
-  1. `TRAINS_API_ACCESS_KEY`: Your trains api access key. You can find it in your trains.conf file under api.credentials.access_key section, [read more](https://allegro.ai/docs/references/trains_ref/#api-section). 
-  2. `TRAINS_API_SECRET_KEY`: Your trains api secret key. You can find it in your trains.conf file under api.credentials.secret_key section, [read more](https://allegro.ai/docs/references/trains_ref/#api-section).
-  3. `TRAINS_API_HOST`: The Trains api server address. You can find it in your trains.conf file under  api.api_server section, [read more](https://allegro.ai/docs/references/trains_ref/#api-section).
+  1. `CLEARML_API_ACCESS_KEY`: Your ClearML api access key. You can find it in your clearml.conf file under api.credentials.access_key section, [read more](https://clear.ml/docs/latest/docs/). 
+  2. `CLEARML_API_SECRET_KEY`: Your ClearML api secret key. You can find it in your clearml.conf file under api.credentials.secret_key section, [read more](https://clear.ml/docs/latest/docs/).
+  3. `CLEARML_API_HOST`: The ClearML api server address. You can find it in your clearml.conf file under  api.api_server section, [read more](https://clear.ml/docs/latest/docs/).
   4. `TASK_ID`: Id of the task you would like to clone.
 
 #### Optional
 
-  1. `QUEUE_NAME`: Queue for the cloned task (default value: `default`). You can read more about queues [here](https://allegro.ai/docs/use_cases/trains_agent_use_case_examples/#running-workers).
+  1. `QUEUE_NAME`: Queue for the cloned task (default value: `default`). You can read more about queues [here](https://clear.ml/docs/latest/docs/getting_started/mlops/mlops_first_steps).
   
 ### Outputs
 
